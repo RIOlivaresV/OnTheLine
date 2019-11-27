@@ -29,9 +29,9 @@ public class UserDAO {
         return  db.insert(TABLE_NAME, null, values);
     }
 
-    public User onSelectUser(String email){
+    public User onSelectUser(String email, String password){
         SQLiteDatabase db = dbm.getWritableDatabase();
-        Cursor res = db.query(TABLE_NAME, null, null, null,null, null,null);
+        Cursor res = db.query(TABLE_NAME, null, "email='"+email+"' and password='"+password+"'", null,null, null,null);
         ArrayList<User> list = new ArrayList<User>();
         while (res.moveToNext()){
             User NewUser = new User();

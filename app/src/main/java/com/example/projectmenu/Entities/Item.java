@@ -8,12 +8,16 @@ public class Item {
         setID(id);
         setName(name);
     }
+    public Item(){
+        setID(-1);
+        setName(null);
+    }
 
     public int getID() {
         return ID;
     }
 
-    public void setID(int ID) {
+    public void setID(Integer ID) {
         this.ID = ID;
     }
 

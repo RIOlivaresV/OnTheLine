@@ -19,6 +19,7 @@
             android:layout_weight="1"
             android:cursorVisible="false"
             android:text="Add Item"
+            android:textColor="#FFFFFF"
             android:textColorLink="@color/colorAccent" />
 
         <Button
@@ -27,14 +28,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Add Dish" />
+            android:text="Add Dish"
+            android:textColor="#FFFFFF" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/DinamicLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"/>
+        android:orientation="vertical" >
+
+    </LinearLayout>
+
+    <Switch
+        android:id="@+id/switchDishes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checked="false"
+        android:textOff="Dishes"
+        android:textOn="Items" />
 
     <LinearLayout
         android:id="@+id/DinamicList"
@@ -49,29 +61,10 @@
             android:layout_height="match_parent" />
 
         <TextView
-            android:id="@+id/txtItem"
+            android:id="@+id/txtToDo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="TextView" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|right"
-        android:gravity="bottom|right"
-        android:orientation="horizontal">
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floatingActionButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:layout_weight="1"
-            android:clickable="true"
-            app:backgroundTint="#EC0C0C"
-            app:srcCompat="@drawable/ic_add_box_black_24dp" />
 
     </LinearLayout>
 

@@ -24,6 +24,27 @@ public class ItemDAO {
         return db.insert(TABLE_NAME, null, values);
     }
 
+    public Item onSelectItem(int id, String name){
+        SQLiteDatabase db = dbm.getWritableDatabase();
+        String[] array = {name};
+        Cursor res = db.query(TABLE_NAME, null, "name=?", array, null, null, null);
+        Item itemFound = new Item();
+        while(res.moveToNext()){
+            itemFound =  new Item(Integer.parseInt(res.getString(0)), res.getString(1));
+        }
+        return itemFound;
+    }
+
+    public Item onSelectItembyId(int id){
+        SQLiteDatabase db = dbm.getWritableDatabase();
+        Cursor res = db.query(TABLE_NAME, null, "id='"+id+"'", null, null, null, null);
+        Item itemFound = new Item();
+        while(res.moveToNext()){
+            itemFound =  new Item(Integer.parseInt(res.getString(0)), res.getString(1));
+        }
+        return itemFound;
+    }
+
     public ArrayList<Item> onSelectListItem(){
         SQLiteDatabase db = dbm.getWritableDatabase();
         Cursor res = db.query(TABLE_NAME, null, null, null, null, null, null);

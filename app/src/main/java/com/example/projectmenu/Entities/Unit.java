@@ -10,6 +10,11 @@ public class Unit {
         Name = name;
     }
 
+    public Unit(){
+        this.setID(-1);
+        this.setName(null);
+    }
+
     public int getID() {
         return ID;
     }

@@ -24,6 +24,7 @@ public class DataBaseManager extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE Item (id integer primary key autoincrement, name text)");
         db.execSQL("CREATE TABLE Dish (id integer primary key autoincrement, name text, itemId integer, foreign key(itemId) references Item(id))");
         db.execSQL("CREATE TABLE Unit (id integer primary key autoincrement, name text)");
+        db.execSQL("CREATE TABLE Prep (id integer primary key autoincrement, itemName text, toDo text, amount real, unit integer, date text, foreign key(unit) references Unit(id))");
         db.execSQL("CREATE TABLE Stock (itemId integer, date text, unitId integer, userId integer, foreign key(itemId) references Item(id), foreign key (unitId) references Unit(id), foreign key(userId) references User(id)  )");
         Log.d("DataBaseManager", "onCreate");
     }

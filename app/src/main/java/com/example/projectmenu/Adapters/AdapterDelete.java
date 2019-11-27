@@ -1,4 +1,4 @@
-package com.example.projectmenu;
+package com.example.projectmenu.Adapters;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -19,7 +19,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.projectmenu.DAOs.ItemDAO;
+import com.example.projectmenu.DataBaseManager;
 import com.example.projectmenu.Entities.Item;
+import com.example.projectmenu.R;
 import com.example.projectmenu.ui.stock.StockFragment;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -48,7 +50,7 @@ public class AdapterDelete extends ArrayAdapter<Item> {
         return getNewView(position, convertView, parent);
     }
 
-    public View getNewView(final int position, View convertView, ViewGroup parent){
+    public View getNewView(final int position, View convertView, final ViewGroup parent){
         final ViewHolder holder;
         if (convertView == null){
             LayoutInflater layoutInflater = LayoutInflater.from(context);
@@ -96,6 +98,9 @@ public class AdapterDelete extends ArrayAdapter<Item> {
                                                 } else {
                                                     Snackbar make = Snackbar.make(v, list.get(listPos).getName() + " was deleted from your stock", Snackbar.LENGTH_LONG);
                                                     make.setAction("Action", null).show();
+                                                    list.remove(listPos);
+                                                    notifyDataSetChanged();
+                                                    holder.linearLayout.removeAllViews();
                                                 }
                                             }
                                         })
